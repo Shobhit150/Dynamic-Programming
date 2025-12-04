@@ -32,6 +32,7 @@ int memo(vector<vector<int>> &matrix, int day, int last, vector<vector<int>> &dp
     dp[day][last] = max1;
     return max1;
 }
+
 int tab(vector<vector<int>> &matrix, int n) {
     vector<int> dp(4,0);
 
