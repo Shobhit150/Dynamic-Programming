@@ -27,7 +27,11 @@ public:
         return dp[i][currentTotal] = min(take, skip);
     }
     int tab(vector<int>& nums, int n, int total) {
-        vector<vector<int>> dp;
+        vector<vector<int>> dp(n+1, vector<int>(total+1,0));
+        for(int j=0;j<=total;j++) {
+            
+        }
+
     }
     int minimumDifference(vector<int>& nums) {
         int total = 0;
