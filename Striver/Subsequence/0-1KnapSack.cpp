@@ -33,10 +33,23 @@ public:
 
         return dp[i][currLeft] = max(skip, take);
     }
-    int tab(vector<int>& wt, vector<int> &val, int n, int W)
+    int tab(vector<int>& wt, vector<int> &val, int n, int W) {
+        vector<vector<int>> dp(n+1, vector<int>(W+1,0));
+        for(int i=n-1;i>=0;i--) {
+            for(int currLeft = 0;currLeft<=W;currLeft++) {
+                int skip = dp[i+1][currLeft];
+                int take = INT_MIN/2;
+                if(currLeft - wt[i] >= 0) {
+                    take = val[i] + dp[i+1][currLeft - wt[i]];
+                }
+                dp[i][currLeft] = max(skip, take);
+            }
+        }
+        return dp[0][W];
+    }
     int KnapSack(vector<int>& wt, vector<int> &val, int n, int W) {
         vector<vector<int>> dp(n+1, vector<int>(W+1,-1));
-        return memo(wt, val, n, 0, W,dp);
+        return tab(wt, val, n, W);
     }
 };
 
