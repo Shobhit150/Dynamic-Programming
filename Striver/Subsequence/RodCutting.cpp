@@ -2,9 +2,10 @@
 using namespace std;
 
 class Solution{
-  public:
+    public:
+    int bruteForce()
     int rodCutting(vector<int> price, int n) {
-        
+
     }
 };
 
